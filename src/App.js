@@ -1,14 +1,16 @@
 import "./App.css";
-import Contacts from "./components/contact/Contacts";
-import Navbar from "./components/Navbar";
+import {AddContact,EditContact,ViewContact,Contacts,Contact , Navbar , SearchContact} from "./components";
+import { useState } from "react";
 
 const App = () => {
-    return (
-        <div className="App">
-            <Navbar/>
-            <Contacts/>
-        </div>
-    );
+  const [getContacts, setContacts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  return (
+    <div className="App">
+      <Navbar />
+      <Contacts contacts={getContacts} loading={loading} />
+    </div>
+  );
 };
 
 export default App;
