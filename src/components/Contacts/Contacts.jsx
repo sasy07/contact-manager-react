@@ -1,19 +1,20 @@
 import { CURRENTLINE, PINK, ORANGE } from "../../helpers/colors";
 import Contact from "./Contact";
 import Spinner from "../Spinner";
+import { Link } from "react-router-dom";
 
-function Contacts({ contacts, loading }) {
+function Contacts({ contacts, loading , confirmDelete}) {
   return (
     <>
       <section className="container">
         <div className="grid">
-          <div className="row">
+          <div className="row pt-3">
             <div className="col">
-              <p className="h3">
-                <button className="btn mx-2" style={{ backgroundColor: PINK }}>
+              <p className="h3 float-end">
+                <Link to={"/contacts/add"} className="btn mx-2" style={{ backgroundColor: PINK }}>
                   ساخت مخاطب جدید
                   <i className="fa fa-plus-circle mx-2" />
-                </button>
+                </Link>
               </p>
             </div>
           </div>
@@ -25,7 +26,7 @@ function Contacts({ contacts, loading }) {
         <section className="container">
           <div className="row">
             {contacts.length > 0 ? (
-              contacts.map((c) => <Contact key={c.id} contact={c} />)
+              contacts.map((c) => <Contact confirmDelete = {()=>confirmDelete(c.id , c.fullname)} key={c.id} contact={c} />)
             ) : (
               <div
                 className="text-center py-5 "

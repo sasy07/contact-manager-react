@@ -1,6 +1,6 @@
 import { COMMENT, PURPLE } from "../../helpers/colors";
 
-function SearchContact() {
+function SearchContact({query , search}) {
   return (
     <div className="input-group mx-2 w-75" dir="ltr">
       <span
@@ -13,6 +13,8 @@ function SearchContact() {
       <input
         dir="rtl"
         type="text"
+        value={query.text}
+        onChange={search}
         style={{ backgroundColor: COMMENT, borderColor: PURPLE }}
         className="form-control"
         placeholder="جستجوی مخاطب"

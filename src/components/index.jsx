@@ -6,6 +6,6 @@ export {default as Contact} from "./Contacts/Contact";
 export {default as SearchContact} from "./Contacts/SearchContact";
 
 
-export {default as NavBar} from "./Navbar";
-export {default as Spinner} from "./Contacts/Spinner";
+export {default as Navbar} from "./Navbar";
+export {default as Spinner} from "./Spinner";
 
