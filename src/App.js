@@ -67,11 +67,22 @@ const App = () => {
   };
 
   const createContactForm = async (event) => {
+
     event.preventDefault();
     try {
-      const { status } = await createContact(contact);
+      setLoading((prevLoading) => !prevLoading);
+      const { status, data } = await createContact(contact);
+      /*
+       * NOTE
+       * 1 - render => forceRender
+       * 2 - setContacts ... contacts , data ====> OK
+       */
       if (status === 201) {
+        const allContacts = [...contacts, data];
+        setContacts(allContacts);
+        setFilteredContacts(allContacts);
         setContact({});
+        setLoading((prevLoading) => !prevLoading);
         navigate("/contacts");
       }
     } catch (error) {
