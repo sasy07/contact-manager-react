@@ -67,7 +67,6 @@ const App = () => {
   };
 
   const createContactForm = async (event) => {
-
     event.preventDefault();
     try {
       setLoading((prevLoading) => !prevLoading);
@@ -131,16 +130,24 @@ const App = () => {
   };
 
   const removeContact = async (contactId) => {
+    const allContacts = [...contacts];
     try {
       setLoading(true);
-      const response = await deleteContact(contactId);
-      if (response) {
-        const { data: contactsData } = await getAllContacts();
-        setContacts(contactsData);
+      const updatedContact = contacts.filter((c) => c.id !== contactId);
+      setContacts(updatedContact);
+      setFilteredContacts(updatedContact);
+
+      const { status } = await deleteContact(contactId);
+      if (status !== 200) {
+        setContacts(allContacts);
+        setFilteredContacts(filteredContacts);
+        setLoading(false);
+      } else {
         setLoading(false);
       }
     } catch (error) {
-      console.log(error);
+      setContacts(allContacts);
+      setFilteredContacts(filteredContacts);
       setLoading(false);
     }
   };
@@ -162,10 +169,11 @@ const App = () => {
         loading,
         setLoading,
         contact,
-        setContact,
+        filteredContacts ,
+        setContacts,
+        setFilteredContacts,
         contactQuery,
         contacts,
-        filteredContacts,
         groups,
         onContactChange,
         deleteContact: confirmDelete,
