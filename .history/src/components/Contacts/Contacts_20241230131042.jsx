@@ -29,7 +29,7 @@ const Contacts = () => {
         <section className="container">
           <div className="row">
             {contacts.length > 0 ? (
-              contacts.map((c) => <Contact deleteContact = {()=>deleteContact(c.id , c.fullname)} key={c.id} contact={c} />)
+              contacts.map((c) => <Contact confirmDelete = {()=>deleteContact(c.id , c.fullname)} key={c.id} contact={c} />)
             ) : (
               <div
                 className="text-center py-5 "

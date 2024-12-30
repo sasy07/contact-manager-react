@@ -1,12 +1,7 @@
-import { useContext } from "react";
 import { COMMENT, PURPLE } from "../../helpers/colors";
-import { ContactContext } from "../../context/contactContext";
 
-function SearchContact() {
-  const {contactQuery , contactSearch} = useContext(ContactContext);
-
+function SearchContact({query , search}) {
   return (
-
     <div className="input-group mx-2 w-75" dir="ltr">
       <span
         className="input-group-text"
@@ -18,8 +13,8 @@ function SearchContact() {
       <input
         dir="rtl"
         type="text"
-        value={contactQuery.text}
-        onChange={contactSearch}
+        value={query.text}
+        onChange={search}
         style={{ backgroundColor: COMMENT, borderColor: PURPLE }}
         className="form-control"
         placeholder="جستجوی مخاطب"

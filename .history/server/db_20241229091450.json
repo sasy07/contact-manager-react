@@ -15,16 +15,20 @@
       "mobile": "09121112425",
       "email": "iman@madaeny.com",
       "job": "برنامه نویس",
-      "group": "1",
+      "group": [
+        "1"
+      ],
       "id": 2
     },
     {
-      "fullname": "ساسان غفوری فرد",
-      "photo": "gggg",
+      "fullname": [
+        "ساسان غفوری فرد"
+      ],
+      "photo": "https://avatars.githubusercontent.com/u/22424257",
       "mobile": "09163357023",
-      "email": "sasy1989.924@gmail.com",
-      "job": "نوب سگ",
-      "group": "1",
+      "email": "mrlost@yahoo.com",
+      "job": "برنامه نویس وب",
+      "group": "2",
       "id": 3
     }
   ],
